@@ -1,0 +1,19 @@
+{
+    "name": "Live CSS Mod",
+    "version": "1.0",
+    "description": "Modify the HTML/CSS/JS code from your favorite text editor and it'll automatically refresh your web browser to see the changes.",
+    "content_scripts": [
+        {
+            "matches": ["http://www.google.com/*"],
+            "js": ["jquery-1.7.1.min.js", "background.js"]
+        }
+    ],
+    "background_page": "background.html",
+    "permissions": [
+        "tabs", "http://*/*"
+    ],
+    "browser_action": {
+        "name": "Click to change the icon's color"
+    },
+    "content_security_policy": "default-src 'self'"
+}
