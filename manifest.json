@@ -1,6 +1,6 @@
 {
     "name": "Live CSS Mod",
-    "version": "1.0",
+    "version": "1.1.1",
     "description": "Modify the HTML/CSS/JS code from your favorite text editor and it'll automatically refresh your web browser to see the changes.",
     "content_scripts": [
         {
@@ -13,7 +13,7 @@
         "tabs", "http://*/*"
     ],
     "browser_action": {
-        "name": "Click to change the icon's color"
+        "name": "Click to run the changes verificator"
     },
     "content_security_policy": "default-src 'self'"
 }
