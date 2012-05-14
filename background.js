@@ -8,14 +8,14 @@ var def_get_source = "function get_source(){ \
             else \
                 domain=location.protocol+'\/\/'+location.hostname+(location.port?':'+location.port:''); \
             $.ajax({url:url,async:false,cache:false,dataType:'text',success:function(a){source=a}}); \
-            css_src=source.match(/(href=(\"|\'))[^http].+(\.css)/g); \
+            css_src=source.match(/(href=(\"|\'))[^http].+(\\.css)/g); \
             if (css_src!=null){ \
-                $.each(css_src,function(a,b){css_src[a]=css_src[a].replace(/href=(\"|\')/,domain)}); \
+                $.each(css_src,function(a,b){css_src[a]=css_src[a].replace(/href=(\"|\')\\/?/,domain+'/')}); \
                 $.each(css_src,function(a,b){ \
                     $.ajax({url:b,async:false,cache:false,dataType:'text',success:function(a){source+=a}})});} \
-            js_src=source.match(/(src=(\"|\'))[^http].+(\.js)/g); \
+            js_src=source.match(/(src=(\"|\'))[^http].+(\\.js)/g); \
             if (js_src!=null){ \
-                $.each(js_src,function(a,b){js_src[a]=js_src[a].replace(/src=(\"|\')/,domain)}); \
+                $.each(js_src,function(a,b){js_src[a]=js_src[a].replace(/src=(\"|\')\\/?/,domain+'/')}); \
                 $.each(js_src,function(a,b){ \
                     $.ajax({url:b,async:false,cache:false,dataType:'text',success:function(a){source+=a}})});} \
             return source \
